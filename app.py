@@ -145,9 +145,9 @@ def main():
                     st.write(doc_len)
                     st.write(summ)
 
-                    st.info("Rouge Score")
-                    eval_df = eval_summ(summ,raw_text)
-                    st.dataframe(eval_df.T)
+                    # st.info("Rouge Score")
+                    # eval_df = eval_summ(summ,raw_text)
+                    # st.dataframe(eval_df.T)
 
                     eval_df['metrics'] = eval_df.index
                     c = alt.Chart(eval_df).mark_bar().encode(
