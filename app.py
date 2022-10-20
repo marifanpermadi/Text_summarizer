@@ -90,12 +90,16 @@ def get_sentiment(my_text):
     sentiment = blob.sentiment
     return sentiment
 
+#wordcloud fx
 def plot_wordcloud(my_text):
     wordc = WordCloud().generate(my_text)
     fig = plt.figure()
     plt.imshow(wordc, interpolation='bilinear')
     plt.axis('off')
     st.pyplot(fig)
+
+		with st.expander("Plot Wordcloud"):
+                    plot_wordcloud(raw_text)
 
 #download fx
 def download_result(data):
@@ -144,10 +148,6 @@ def main():
                     doc_len = {"Original":len(raw_text),"Summary":len(summ)}
                     st.write(doc_len)
                     st.write(summ)
-
-                    # st.info("Rouge Score")
-                    # eval_df = eval_summ(summ,raw_text)
-                    # st.dataframe(eval_df.T)
 
                     eval_df['metrics'] = eval_df.index
                     c = alt.Chart(eval_df).mark_bar().encode(
